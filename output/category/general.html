@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Thomas Cole - General</title>
+    <meta name="description" content="">
+    <meta name="author" content="Thomas Cole">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le styles -->
+    <link href="http://localhost:8000/theme/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:8000/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    <link href="http://localhost:8000/theme/local.css" rel="stylesheet">
+    <link href="http://localhost:8000/theme/pygments.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="navbar-inner">
+    <div class="container">
+
+         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+             <span class="icon-bar"></span>
+         </a>
+
+        <a href="http://localhost:8000" class="navbar-left pull-left"><img src="/images/logo-03.svg" width="350px"></a>
+
+        <div class="nav-collapse">
+        <ul class="nav pull-right">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about-me.html">About</a></li>
+            <li><a href="/projects.html">Projects</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+
+        </ul>
+        </div>
+
+    </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="span9">
+        
+
+        
+
+
+    <div class='article'>
+        <div class="content-title">
+            <a href="http://localhost:8000/posts/2019/Jun/04/my-first-post/"><h1>My First Real Post</h1></a>
+Tue 04 June 2019
+
+by <a class="url fn" href="http://localhost:8000/author/thomas-cole.html">Thomas Cole</a>
+ 
+
+
+ 
+        </div>
+        
+        <div><p>This is the first Pelican blog post. I am new to Pelican. I just switched over from Jekyll. Before that it was Wordpress.</p>
+<p>I can't seem to see my changes in the browser. Perhaps it's caching?</p>
+<p>I added this to the <code>pelicanconf.py</code> file:</p>
+<div class="highlight"><pre><span></span><span class="c1"># disable cache to see changes</span>
+<span class="n">LOAD_CONTENT_CACHE</span> <span class="o">=</span> <span class="bp">False</span>
+</pre></div>
+
+
+<p>Okay not exactly sure what's going on here, because I just cleared the browser cache for the last 24 hours, and I still can't see the changes.</p>
+<p>Just tried this:</p>
+<div class="highlight"><pre><span></span>tom@tbeaver:~/code-2019/pelican$ pelican --listen --ignore-cache
+</pre></div>
+
+
+<p>Still nothing. Nada. Manually delete the cache? Killed that. Still nothing. Moving along...</p>
+<p>Okay I found out where the themes are, and by running this command you can see there are two of them:</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> tom@tbeaver:~/code-2019/pelican$ pelican-themes -l -v
+/home/tom/code-2019/pelican/venv/lib/python3.6/site-packages/pelican/themes/simple
+/home/tom/code-2019/pelican/venv/lib/python3.6/site-packages/pelican/themes/notmyidea
+</pre></div>
+
+
+<p>A quick look at the template tells me I am using 'notmyidea', but if I add a line to the <code>pelicanconf.py</code> file, still nothing changes:
+<code>THEME = 'simple'</code>
+It still looks the same. I'm missing something obvious here, it's serving from some cache that I haven't yet discovered and disabled/deleted. Okay from the command line I did <code>`pelican --r</code> and the theme change took I think. But still no content update?</p>
+<p>Okay now after switching the theme back to 'notmyidea' in the config, and doing another <code>pelican --r</code> followed by another <code>`pelican --listen</code>, it looks like everything is now showing up. Hmm...</p>
+<p>Okay it looks like there is something I can use, using this command:</p>
+<div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span> tom@tbeaver:~/code-2019/pelican$ pelican --listen --autoreload
+  --- AutoReload Mode: Monitoring <span class="sb">`</span>content<span class="sb">`</span>, <span class="sb">`</span>theme<span class="sb">`</span> and <span class="sb">`</span>settings<span class="sb">`</span> <span class="k">for</span> changes. ---
+
+-&gt; Modified: content, theme, settings. re-generating...
+Done: Processed <span class="m">1</span> article, <span class="m">0</span> drafts, <span class="m">0</span> pages, <span class="m">0</span> hidden pages and <span class="m">0</span> draft pages in <span class="m">1</span>.28 seconds.
+</pre></div>
+
+
+<p>Now I can see changes after a refresh, good enough for now.</p></div>
+        <hr />
+    </div>
+		
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://localhost:8000/posts/2019/Jun/03/test-post-one/"><h2>Test Post One</h2></a>
+        <div class= "well small"> Mon 03 June 2019
+
+by <a class="url fn" href="http://localhost:8000/author/thomas-cole.html">Thomas Cole</a>
+ 
+
+
+ </div>
+        <div class="summary"> <a class="btn btn-info xsmall" href="http://localhost:8000/posts/2019/Jun/03/test-post-one/">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://localhost:8000/posts/2019/Jun/03/test-post-three/"><h2>Test Post Three</h2></a>
+        <div class= "well small"> Mon 03 June 2019
+
+by <a class="url fn" href="http://localhost:8000/author/thomas-cole.html">Thomas Cole</a>
+ 
+
+
+ </div>
+        <div class="summary"> <a class="btn btn-info xsmall" href="http://localhost:8000/posts/2019/Jun/03/test-post-three/">read more</a></div>
+    </div>	
+				
+
+ 
+        
+
+ 
+
+    <div class='article'>
+        <a href="http://localhost:8000/posts/2019/Jun/03/test-post-two/"><h2>Test Post Two</h2></a>
+        <div class= "well small"> Mon 03 June 2019
+
+by <a class="url fn" href="http://localhost:8000/author/thomas-cole.html">Thomas Cole</a>
+ 
+
+
+ </div>
+        <div class="summary"> <a class="btn btn-info xsmall" href="http://localhost:8000/posts/2019/Jun/03/test-post-two/">read more</a></div>
+    </div>	
+				
+<div class="pagination">
+<ul>
+    <li class="prev disabled"><a href="#">&larr; Previous</a></li>
+
+    <li class="active"><a href="http://localhost:8000/category/general.html">1</a></li>
+
+    <li class="next disabled"><a href="#">&rarr; Next</a></li>
+
+</ul>
+</div>
+ 
+  
+        </div>
+
+        <div class="span3">
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header">
+                Site
+                </li>
+
+                <li><a href="http://localhost:8000/archives.html">Archives</a>
+                <li><a href="http://localhost:8000/tags.html">Tags</a>
+
+
+
+
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header">
+                Categories
+                </li>
+
+                <li><a href="http://localhost:8000/category/general.html">General</a></li>
+                <li><a href="http://localhost:8000/category/general-pelican.html">General, Pelican</a></li>
+            </ul>
+            </div>
+
+
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header">
+                Links
+                </li>
+
+                <li><a href="http://getpelican.com/">Pelican</a></li>
+                <li><a href="http://python.org/">Python.org</a></li>
+                <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+            </ul>
+            </div>
+
+
+            <div class="social">
+            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
+            <ul class="nav nav-list">
+                <li class="nav-header">
+                Social
+                </li>
+
+                <li><a href="https://github.com/thomasjohncole">GitHub</a></li>
+                <li><a href="www.linkedin.com/in/thomas-john-cole">LinkedIn</a></li>
+                <li><a href="https://twitter.com/thomasjohncole">Twitter</a></li>
+            </ul>
+            </div>
+            </div>
+
+        </div>     </div>     </div> 
+<footer>
+<br />
+<p><a href="http://localhost:8000">Thomas Cole</a> &copy; Thomas Cole 2019</p>
+</footer>
+
+</div> <!-- /container -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://localhost:8000/theme/bootstrap-collapse.js"></script>
+</body>
+</html>
