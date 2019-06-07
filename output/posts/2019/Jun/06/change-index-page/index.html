@@ -34,7 +34,7 @@
 
         <div class="nav-collapse">
         <ul class="nav pull-right">
-            <li><a href="/index.html">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/about-me.html">About</a></li>
             <li><a href="/projects.html">Projects</a></li>
             <li><a href="/blog.html">Blog</a></li>
@@ -63,7 +63,67 @@ by <a class="url fn" href="http://localhost:8000/author/thomas-cole.html">Thomas
 
         </div>
 	
-        <div><p>Pelican is a static site generator written in Python. It is used by many primarily as a blogging tool, and the default setup is an index or landing page which shows the most recent blog articles in reverse chronological order.</p></div>
+        <div><p><a href="http://getpelican.com" title="Pelican Development Blog">Pelican</a> is a static site generator written in Python. It is used by many as a blogging tool, and the default setup is an index or landing page which shows the most recent blog articles in reverse chronological order, similar to the default for Wordpress.</p>
+<p>I wanted to have some fun making a landing page for my site, so I didn't want the blog to be the index.html page - the first thing people see. I still wanted to keep the blog index page though, but serve it at a different URL like blog.html, and make it accesible as a navigation menu link.</p>
+<p>Pelican takes data from its configuration files, content files, and template files, and converts it all to a group of static HTML files, which are stored by default in the output directory. One option with Pelican is to use <a href="https://en.wikipedia.org/wiki/Markdown" title="Markdown Wikipedia page">markdown</a> files to create content, which is what I'm using for my site.</p>
+<h2>Change the URL of the default index page</h2>
+<p>I changed the URL of the default index page by adding one line to the <code>pelicanconf.py</code> file:</p>
+<div class="highlight"><pre><span></span><span class="n">INDEX_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;blog.html&#39;</span>
+</pre></div>
+
+
+<p>Now Pelican will save that file with the new name when it builds the site.</p>
+<h2>Assign index.html to my custom home page</h2>
+<p>To tell Pelican that I want my custom home page to be the new index, I add some information to the metadata of my home.md file:</p>
+<div class="highlight"><pre><span></span>Title: Home
+save_as: index.html
+</pre></div>
+
+
+<h2>Define the navigation menu links</h2>
+<p>I've created some other static pages in addition to the home page. I want these to show up on the navigation menu in a specific order with a specific URL. Pelican by default expects any static pages you create to go in a directory named <code>pages</code>. If you define <code>DISPLAY_PAGES_ON_MENU = True</code> setting in the <code>pelicanconf.py</code> file, Pelican will take the files in your <code>/pages</code>  folder, and display them in the navigation menu in alphabetical order. It will also keep the <code>/pages</code> path as part of the URL. For instance, if you define a <code>contact.md</code> file in your <code>/pages</code> directory, Pelican will add <code>contact.html</code> to your navigation menu, with a URL of <code>SITEURL/pages/contact.html</code></p>
+<p>To change the order and the URLs of the navigation links I did two things. First, I defined the URLs for pages in the <code>`pelicanconf.py</code> so they don't include the full path:</p>
+<div class="highlight"><pre><span></span><span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}&#39;</span>
+<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}.html&#39;</span>
+</pre></div>
+
+
+<p>I then added the <code>slug</code> parameter to the metadata of my pages. Here is an example of the metadata for the contact.md page:</p>
+<div class="highlight"><pre><span></span>Title: Contact
+slug: contact
+</pre></div>
+
+
+<p>Now the URL and file name for the contact page will take on the value of the slug from the metadata, so the URL will now be <code>SITEURL/contact.html</code></p>
+<p>Finally I specified the links and associated URLs I wanted in the navigation menu:</p>
+<div class="highlight"><pre><span></span><span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;Home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;About&#39;</span><span class="p">,</span> <span class="s1">&#39;/about-me.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Projects&#39;</span><span class="p">,</span> <span class="s1">&#39;/projects.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Blog&#39;</span><span class="p">,</span> <span class="s1">&#39;/blog.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Contact&#39;</span><span class="p">,</span> <span class="s1">&#39;/contact.html&#39;</span> <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<p>In order for this to work properly make sure that <code>DISPLAY_PAGES_ON_MENU</code> is set to false.</p>
+<h2>Conclusion</h2>
+<p>Pelican is a very flexible tool, and with a few changes to my configuration and page metadata I now have a site with a custom landing page, a custom navigation menu, and much cleaner URLs for my content pages. Here are all the changes to <code>pelicanconf.py</code> discussed in this article in one code block for easy reference:</p>
+<div class="highlight"><pre><span></span><span class="c1"># save default index page as blog.html</span>
+<span class="n">INDEX_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;blog.html&#39;</span>
+<span class="c1"># define shorter filename and URL for content pages</span>
+<span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}&#39;</span>
+<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}.html&#39;</span>
+<span class="c1"># define custom navigation menu</span>
+<span class="n">DISPLAY_PAGES_ON_MENU</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;Home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;About&#39;</span><span class="p">,</span> <span class="s1">&#39;/about-me.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Projects&#39;</span><span class="p">,</span> <span class="s1">&#39;/projects.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Blog&#39;</span><span class="p">,</span> <span class="s1">&#39;/blog.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Contact&#39;</span><span class="p">,</span> <span class="s1">&#39;/contact.html&#39;</span> <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div></div>
 	
         <hr>
 
@@ -95,7 +155,7 @@ by <a class="url fn" href="http://localhost:8000/author/thomas-cole.html">Thomas
                 </li>
 
                 <li><a href="http://localhost:8000/category/general.html">General</a></li>
-                <li><a href="http://localhost:8000/category/general-pelican.html">General, Pelican</a></li>
+                <li><a href="http://localhost:8000/category/pelican.html">Pelican</a></li>
             </ul>
             </div>
 

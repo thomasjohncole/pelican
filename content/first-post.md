@@ -44,4 +44,4 @@ Okay it looks like there is something I can use, using this command:
 -> Modified: content, theme, settings. re-generating...
 Done: Processed 1 article, 0 drafts, 0 pages, 0 hidden pages and 0 draft pages in 1.28 seconds.
 ```
-Now I can see changes after a refresh, good enough for now.
+Now I can see changes after a refresh, good enough for now. I need to familiarize myself with the various commands and learn my way around the config files. This should be fun.

@@ -6,7 +6,7 @@ AUTHOR = 'Thomas Cole'
 SITENAME = 'Thomas Cole'
 # do we need this on the local site? seems links break without it
 SITEURL = 'http://localhost:8000'
-# trying out some URL stuff
+# Save the default index page as blog.html
 INDEX_SAVE_AS = 'blog.html'
 ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
@@ -19,9 +19,9 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 THEME = "/home/tom/code-2019/pelican/themes/tuxlite_tbs_mod"
 # display static pages from content/pages/ in the menu
 DISPLAY_PAGES_ON_MENU = False
-# use this list to get menu links in the correct order
+# use this list to get custom menu links
 MENUITEMS = (
-    ('Home', '/index.html'),
+    ('Home', '/'),
     ('About', '/about-me.html'),
     ('Projects', '/projects.html'),
     ('Blog', '/blog.html'),
