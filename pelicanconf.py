@@ -58,7 +58,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 
 # Social widget
 SOCIAL = (('GitHub', 'https://github.com/thomasjohncole'),
-          ('LinkedIn', 'www.linkedin.com/in/thomas-john-cole'),
+          ('LinkedIn', 'https://www.linkedin.com/in/thomas-john-cole'),
           ('Twitter', 'https://twitter.com/thomasjohncole'))
 
 DEFAULT_PAGINATION = 10

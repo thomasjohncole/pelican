@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block title %}{{ SITENAME }} - {{ page.title }}{% endblock %}
-{% block content %}        
-<section id="content" class="body">    
-    <h2 class="content-title">
+{% block content %}
+<section id="content" class="body">
+    <h1 class="content-title">
         {{ page.title }}
         {% if page.translations %}
             <a href="{{ SITEURL }}/{{ page.url }}" class="btn btn-info xsmall">{{ page.lang or DEFAULT_LANG }}</a>
@@ -10,7 +10,7 @@
                 <a href="{{ SITEURL }}/{{ translation.url }}" class="btn btn-info xsmall">{{ translation.lang }}</a>&nbsp;
             {% endfor %}
         {% endif %}
-    </h2>
+    </h1>
     {% if PDF_PROCESSOR %}<a href="{{ SITEURL }}/pdf/{{ page.slug }}.pdf">get
     the pdf</a>{% endif %}
     {{ page.content }}

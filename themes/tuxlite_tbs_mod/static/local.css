@@ -1,51 +1,44 @@
-/* Styling for Nav bar. Bg color, link color etc */
-.navbar-inner {
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
-  background-color: #0E1136;
-  background-image: none;
-  height: 125px;
-}
+/* Styling for header */
+header { background-color: #0D1036; padding: 10px; }
 
-.navbar .nav > li > a { color: #49AFCD; }
-.navbar .divider-vertical { border-right: 1px solid #4D4D4D; }
-.navbar { margin-bottom: 2em; }
-.navbar { background-color: #0E1136; }
+
+/* Styling for nav */
+.navbar { background-color: #0D1036; padding: 10px; }
+.navbar-custom .navbar-nav .nav-link { color: #49AFCD; }
+.nav { padding-right: 30px; }
+.navbar-collapse li { line-height: 0.6em;}
 
 
 /* Styling for elements */
-body { font-size: 100%; }
-p { font-size: 100%; line-height: 1.6em; margin-top: 0.8em; margin-bottom: 0.8em; }
-li { line-height: 1.6em; }
+h1, h2, h3 { font-family: "Raleway", sans-serif; margin-top: 20px; }
+body { font-size: 1.2em; }
+p { line-height: 1.6em; margin-top: 0.8em; margin-bottom: 0.8em; }
 h3 { margin-top: 2.5em; }
 .table th, .table td { line-height: 1.3em; }
 
+
 /* Styling for articles */
-.article { padding-bottom:20px; padding-right: 40px; }
-.content-title { margin-bottom: 30px; }
+.article { padding-right: 30px; }
+.content-title { margin-bottom: 30px; color: #0D1036;  }
 .article a:hover { text-decoration: none; }
 
+
+/* Styling for link cards on sidebar */
+.card { background-color: #e6e6e6; margin-top: 25px;}
+.card-header { text-transform: uppercase; font-size:.9em; margin: 0px;}
+.card .nav .nav-link { line-height: .7em; font-size:.9em;}
 
 
 /* Styling for the "other entries" section */
 /* Metadata */
-.well.small { padding: 6px 6px 4px; }
 
-/* Read more button */
-.btn-info.xsmall {
-    padding: 1px 3px 1px;
-    font-size: 11px;
-    float: right;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px;
-}
+
+/* pagination */
+.page-item.active .page-link { background-color: #0D1036; }
 
 /* Article summary */
 .summary { margin-bottom: 4em; }
 .summary pre { display: none; }
-
 
 /* Styling for Sidebar */
 .social a[href*='activestate.com']:before {content: url('./images/icons/activestate.png'); margin-right: 2px; vertical-align: -3px;}

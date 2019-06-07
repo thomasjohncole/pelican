@@ -1,15 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="{{ DEFAULT_LANG }}">
 <head>
     <meta charset="utf-8">
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <meta name="description" content="">
     <meta name="author" content="{{ AUTHOR }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
     <!-- Le styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- comment out old bootstrap
     <link href="{{ SITEURL }}/theme/bootstrap.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    -->
     <link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
@@ -32,56 +36,47 @@
 
 <body>
 
-<div class="navbar">
-    <div class="navbar-inner">
+<nav class="navbar navbar-dark navbar-custom sticky-top navbar-expand-md">
     <div class="container">
+        <div class="navbar-header">
 
-         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-         </a>
+            <a href="{{ SITEURL }}" class="navbar-left pull-left">
+                <img src="{{ SITELOGO }}" width="310px" alt="Thomas Cole">
+            </a>
 
-        <a href="{{ SITEURL }}" class="navbar-left pull-left"><img src="{{ SITELOGO }}" width="350px"></a>
-
-        <div class="nav-collapse">
-        <ul class="nav pull-right">
-        {% for title, link in MENUITEMS %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
-        {% endfor %}
-
-        {% if DISPLAY_PAGES_ON_MENU %}
-        {% for page in pages %}
-            <li><a href="{{ SITEURL }}/{{ page.url }}">{{ page.title }}</a></li>
-        {% endfor %}
-        {% endif %}
-        </ul>
         </div>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+        {% for title, link in MENUITEMS %}
+            <li class="nav-item"><a class="nav-link" href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+        </ul>
     </div>
+
     </div>
-</div>
+</nav>
 
 <div class="container">
     <div class="content">
     <div class="row">
 
-        <div class="span9">
+        <div class="col-md-9">
         {% block content %}{% endblock %}
         </div>
 
-        <div class="span3">
+        <div class="col-md-3">
 
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Site
-                </li>
+            <div class="card" >
+            <h2 class="card-header">Site</h2>
+            <ul class="nav flex-column">
 
-                <li><a href="{{ SITEURL }}/archives.html">Archives</a>
-                <li><a href="{{ SITEURL }}/tags.html">Tags</a>
-
-
+                <li class="nav-item"><a class="nav-link" href="{{ SITEURL }}/archives.html">Archives</a>
+                <li class="nav-item"><a class="nav-link" href="{{ SITEURL }}/tags.html">Tags</a>
 
                 {% if FEED_ALL_ATOM %}
                 <li><a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" rel="alternate">Atom feed</a></li>
@@ -99,48 +94,42 @@
             </ul>
             </div>
 
-
             {% if categories %}
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Categories
-                </li>
+            <div class="card">
+            <h2 class="card-header">Categories</h2>
+            <ul class="nav flex-column">
 
                 {% for cat, null in categories %}
-                <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
                 {% endfor %}
+
             </ul>
             </div>
             {% endif %}
-
 
             {% if LINKS %}
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Links
-                </li>
+            <div class="card">
+            <h2 class="card-header">Links</h2>
+            <ul class="nav flex-column">
 
-            {% for name, link in LINKS %}
-                <li><a href="{{ link }}">{{ name }}</a></li>
-            {% endfor %}
+                {% for name, link in LINKS %}
+                    <li class="nav-item"><a class="nav-link" href="{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+
             </ul>
             </div>
             {% endif %}
-
 
             {% if SOCIAL %}
             <div class="social">
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Social
-                </li>
+            <div class="card">
+            <h2 class="card-header">Social</h2>
+            <ul class="nav flex-column">
 
                 {% for name, link in SOCIAL %}
-                <li><a href="{{ link }}">{{ name }}</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ link }}">{{ name }}</a></li>
                 {% endfor %}
+
             </ul>
             </div>
             </div>
@@ -161,8 +150,13 @@
 </footer>
 
 </div> <!-- /container -->
+<!--- get rid of old bootstrap js
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="{{ SITEURL }}/theme/bootstrap-collapse.js"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 {% include "analytics.html" %}
 {% include "github.html" %}
 </body>

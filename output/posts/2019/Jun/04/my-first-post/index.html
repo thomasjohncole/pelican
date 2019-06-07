@@ -1,15 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Thomas Cole - My First Real Post</title>
     <meta name="description" content="">
     <meta name="author" content="Thomas Cole">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 
     <!-- Le styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- comment out old bootstrap
     <link href="http://localhost:8000/theme/bootstrap.min.css" rel="stylesheet">
     <link href="http://localhost:8000/theme/bootstrap.min.responsive.css" rel="stylesheet">
+    -->
     <link href="http://localhost:8000/theme/local.css" rel="stylesheet">
     <link href="http://localhost:8000/theme/pygments.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
@@ -20,38 +24,38 @@
 
 <body>
 
-<div class="navbar">
-    <div class="navbar-inner">
+<nav class="navbar navbar-dark navbar-custom sticky-top navbar-expand-md">
     <div class="container">
+        <div class="navbar-header">
 
-         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-         </a>
+            <a href="http://localhost:8000" class="navbar-left pull-left">
+                <img src="/images/logo-03.svg" width="310px" alt="Thomas Cole">
+            </a>
 
-        <a href="http://localhost:8000" class="navbar-left pull-left"><img src="/images/logo-03.svg" width="350px"></a>
-
-        <div class="nav-collapse">
-        <ul class="nav pull-right">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about-me.html">About</a></li>
-            <li><a href="/projects.html">Projects</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-
-        </ul>
         </div>
 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about-me.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/projects.html">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="/blog.html">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+        </ul>
     </div>
+
     </div>
-</div>
+</nav>
 
 <div class="container">
     <div class="content">
     <div class="row">
 
-        <div class="span9">
+        <div class="col-md-9">
     <div class='article'>
         <div class="content-title">
             <h1>My First Real Post</h1>
@@ -105,59 +109,49 @@ Done: Processed <span class="m">1</span> article, <span class="m">0</span> draft
     </div>
         </div>
 
-        <div class="span3">
+        <div class="col-md-3">
 
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Site
-                </li>
+            <div class="card" >
+            <h2 class="card-header">Site</h2>
+            <ul class="nav flex-column">
 
-                <li><a href="http://localhost:8000/archives.html">Archives</a>
-                <li><a href="http://localhost:8000/tags.html">Tags</a>
-
-
+                <li class="nav-item"><a class="nav-link" href="http://localhost:8000/archives.html">Archives</a>
+                <li class="nav-item"><a class="nav-link" href="http://localhost:8000/tags.html">Tags</a>
 
 
             </ul>
             </div>
 
+            <div class="card">
+            <h2 class="card-header">Categories</h2>
+            <ul class="nav flex-column">
 
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Categories
-                </li>
+                <li class="nav-item"><a class="nav-link" href="http://localhost:8000/category/general.html">General</a></li>
+                <li class="nav-item"><a class="nav-link" href="http://localhost:8000/category/pelican.html">Pelican</a></li>
 
-                <li><a href="http://localhost:8000/category/general.html">General</a></li>
-                <li><a href="http://localhost:8000/category/pelican.html">Pelican</a></li>
             </ul>
             </div>
 
+            <div class="card">
+            <h2 class="card-header">Links</h2>
+            <ul class="nav flex-column">
 
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Links
-                </li>
+                    <li class="nav-item"><a class="nav-link" href="http://getpelican.com/">Pelican</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://python.org/">Python.org</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://jinja.pocoo.org/">Jinja2</a></li>
 
-                <li><a href="http://getpelican.com/">Pelican</a></li>
-                <li><a href="http://python.org/">Python.org</a></li>
-                <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
             </ul>
             </div>
-
 
             <div class="social">
-            <div class="well" style="padding: 8px 0; background-color: #FBFBFB;">
-            <ul class="nav nav-list">
-                <li class="nav-header">
-                Social
-                </li>
+            <div class="card">
+            <h2 class="card-header">Social</h2>
+            <ul class="nav flex-column">
 
-                <li><a href="https://github.com/thomasjohncole">GitHub</a></li>
-                <li><a href="www.linkedin.com/in/thomas-john-cole">LinkedIn</a></li>
-                <li><a href="https://twitter.com/thomasjohncole">Twitter</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://github.com/thomasjohncole">GitHub</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/thomas-john-cole">LinkedIn</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://twitter.com/thomasjohncole">Twitter</a></li>
+
             </ul>
             </div>
             </div>
@@ -169,7 +163,12 @@ Done: Processed <span class="m">1</span> article, <span class="m">0</span> draft
 </footer>
 
 </div> <!-- /container -->
+<!--- get rid of old bootstrap js
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="http://localhost:8000/theme/bootstrap-collapse.js"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
