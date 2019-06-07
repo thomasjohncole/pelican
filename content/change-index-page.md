@@ -9,7 +9,7 @@ Summary: How to change the landing page on a pelican static site.
 
 [Pelican](http://getpelican.com "Pelican Development Blog") is a static site generator written in Python. It is used by many as a blogging tool, and the default setup is an index or landing page which shows the most recent blog articles in reverse chronological order, similar to the default for Wordpress.
 
-I wanted to have some fun making a landing page for my site, so I didn't want the blog to be the index.html page - the first thing people see. I still wanted to keep the blog index page though, but serve it at a different URL like blog.html, and make it accesible as a navigation menu link.
+I wanted to have some fun making a custom landing page for my site, so I didn't want the blog to be the index.html page - the first thing people see. I still wanted to keep the blog index page though, but serve it at a different URL like blog.html, and make it accesible as a navigation menu link.
 
 Pelican takes data from its configuration files, content files, and template files, and converts it all to a group of static HTML files, which are stored by default in the output directory. One option with Pelican is to use [markdown](https://en.wikipedia.org/wiki/Markdown "Markdown Wikipedia page") files to create content, which is what I'm using for my site.
 
