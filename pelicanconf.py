@@ -29,11 +29,18 @@ MENUITEMS = (
     )
 
 PATH = 'content'
-# added this to get a logo in there
+# added static paths to get a logo in there and extra
 STATIC_PATHS = [
     'images',
     'extra',  # this
 ]
+
+EXTRA_PATH_METADATA = {
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/favicon.ico': {'path': 'favicon.ico'}
+}
+
+
 SITELOGO = '/images/logo-03.svg'
 
 TIMEZONE = 'America/Los_Angeles'
