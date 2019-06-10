@@ -22,6 +22,7 @@ Summary: Upgrading the template to use Bootstrap 4
 * added solarized-dark pygments theme for code block
 * fixed CSS boxes for code blocks
 * fixed sidebar should bump down below content at 768px
+* added style to `code` tags to override bootstrap
 
 ## Still To Do
 
@@ -30,3 +31,4 @@ Summary: Upgrading the template to use Bootstrap 4
 * add content to pages
 * write another blog post about the book "Deep Work"
 * get rid of author stuff, remove dead links
+* deploy to gihub-pages
