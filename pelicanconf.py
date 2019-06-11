@@ -8,28 +8,66 @@ SITENAME = 'Thomas Cole'
 SITEURL = 'http://localhost:8000'
 # Save the default index page as blog.html
 INDEX_SAVE_AS = 'blog.html'
-ARTICLE_URL = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/'
-ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
-PAGE_URL = '{slug}/'
+
+
+
+###########################################
+# ADDING STUFF TO MAKE MY CUSTOM THEME WORK - URLS and FILENAMES
+ARTICLE_URL = '{date:%Y}/{date:%b}/{date:%d}/{slug}/'
+ARTICLE_SAVE_AS = '{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
+PAGE_URL = '{slug}'
 PAGE_SAVE_AS = '{slug}.html'
-YEAR_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/index.html'
-MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 
-# Make all the remaining URLs use the trailing slash without filename
+# Make all the remaining URLs use the trailing slash without file extension
 
-ARTICLE_LANG_URL: '{slug}-{lang}/'
-AUTHOR_URL: 'author/{slug}/'
-CATEGORY_URL: 'category/{slug}/'
-DAY_ARCHIVE_URL: ''
-DRAFT_LANG_URL: 'drafts/{slug}-{lang}/'
-DRAFT_PAGE_LANG_URL: 'drafts/pages/{slug}-{lang}/'
-DRAFT_PAGE_URL: 'drafts/pages/{slug}/'
-DRAFT_URL: 'drafts/{slug}/'
-MONTH_ARCHIVE_URL: ''
-PAGE_LANG_URL: 'pages/{slug}-{lang}/'
-STATIC_URL: '{path}/'
-TAG_URL: 'tag/{slug}/'
-YEAR_ARCHIVE_URL: ''
+ARTICLE_LANG_URL = '{slug}-{lang}/'
+# I know these  work
+AUTHOR_URL = 'author/{slug}/'
+AUTHOR_SAVE_AS = 'author/{slug}/index.html'
+CATEGORY_URL = 'category/{slug}/'
+CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+
+# Not sure about these
+DRAFT_LANG_URL = 'drafts/{slug}-{lang}/'
+DRAFT_PAGE_LANG_URL = 'drafts/pages/{slug}-{lang}/'
+DRAFT_PAGE_URL = 'drafts/pages/{slug}/'
+DRAFT_URL = 'drafts/{slug}/'
+PAGE_LANG_URL = 'pages/{slug}-{lang}/'
+STATIC_URL = '{path}/'
+
+# Test these
+TAG_URL = 'tag/{slug}/'
+TAG_SAVE_AS = 'tag/{slug}/index.html'
+
+YEAR_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/index.html'
+MONTH_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%b}/index.html'
+DAY_ARCHIVE_SAVE_AS = 'archives/{date:%Y}/{date:%b}/{date:%d}/index.html'
+
+YEAR_ARCHIVE_URL = 'archives/{date:%Y}/'
+MONTH_ARCHIVE_URL = 'archives/{date:%Y}/{date:%b}/'
+DAY_ARCHIVE_URL = 'archives/{date:%Y}/{date:%b}/{date:%d}/'
+
+ARCHIVES_SAVE_AS = 'archives.html'
+ARCHIVES_URL = 'archives/'
+
+# additional need to test
+# this should just be a list of all the tags
+TAGS_URL = 'tags/'
+TAGS_SAVE_AS = 'tags/index.html'
+
+AUTHORS_URL = 'authors/'
+AUTHORS_SAVE_AS = 'authors/index.html'
+
+CATEGORYS_URL = 'categories/'
+CATEGORYS_SAVE_AS = 'categories/index.html'
+
+# these seem to work now
+PAGINATION_PATTERNS = (
+(1, '{url}', '{name}{extension}'),
+(2, '{url}/{number}', '{name}{number}{extension}'),
+)
+
+###############################################
 
 
 # my modified theme based on tuxlite_tbs
