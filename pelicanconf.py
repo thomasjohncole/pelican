@@ -7,7 +7,7 @@ SITENAME = 'Thomas Cole'
 # do we need this on the local site? seems links break without it
 SITEURL = 'http://localhost:8000'
 # Save the default index page as blog.html
-INDEX_SAVE_AS = 'blog.html'
+INDEX_SAVE_AS = 'blog/index.html'
 
 
 
@@ -16,7 +16,7 @@ INDEX_SAVE_AS = 'blog.html'
 ARTICLE_URL = '{date:%Y}/{date:%b}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%b}/{date:%d}/{slug}/index.html'
 PAGE_URL = '{slug}'
-PAGE_SAVE_AS = '{slug}.html'
+PAGE_SAVE_AS = '{slug}/index.html'
 
 # Make all the remaining URLs use the trailing slash without file extension
 
@@ -47,7 +47,7 @@ YEAR_ARCHIVE_URL = 'archives/{date:%Y}/'
 MONTH_ARCHIVE_URL = 'archives/{date:%Y}/{date:%b}/'
 DAY_ARCHIVE_URL = 'archives/{date:%Y}/{date:%b}/{date:%d}/'
 
-ARCHIVES_SAVE_AS = 'archives.html'
+ARCHIVES_SAVE_AS = 'archives/index.html'
 ARCHIVES_URL = 'archives/'
 
 # additional need to test
@@ -76,11 +76,11 @@ THEME = "/home/tom/code-2019/pelican/themes/tuxlite_tbs_mod"
 DISPLAY_PAGES_ON_MENU = False
 # use this list to get custom menu links
 MENUITEMS = (
-    ('Home', '/'),
-    ('About', '/about-me/'),
-    ('Projects', '/projects/'),
-    ('Blog', '/blog/'),
-    ('Contact', '/contact/' )
+    ('Home', ''),
+    ('About', 'about-me/'),
+    ('Projects', 'projects/'),
+    ('Blog', 'blog/'),
+    ('Contact', 'contact/' )
     )
 
 PATH = 'content'
