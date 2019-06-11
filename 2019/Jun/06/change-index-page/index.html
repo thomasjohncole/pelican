@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Thomas Cole - How to Change the Pelican Index Page</title>
+    <meta name="description" content="">
+    <meta name="author" content="Thomas Cole">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <!-- Using bootstrap 4 now -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://thomasjohncole.github.io/pelican/theme/local.css" rel="stylesheet">
+    <link href="https://thomasjohncole.github.io/pelican/theme/solarized-dark.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900" rel="stylesheet" type="text/css">
+
+    <!-- So Firefox can bookmark->"abo this site" -->
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark navbar-custom sticky-top navbar-expand-md">
+    <div class="container">
+        <div class="navbar-header">
+
+            <a href="https://thomasjohncole.github.io/pelican" class="navbar-left pull-left">
+                <img src="/images/logo-03.svg" width="310px" alt="Thomas Cole">
+            </a>
+
+        </div>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about-me/">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/projects/">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="/blog/">Blog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact/">Contact</a></li>
+        </ul>
+    </div>
+
+    </div>
+</nav>
+
+<div class="container">
+    <div class="content">
+    <div class="row">
+
+        <div class="col-md-9">
+    <div class='article'>
+        <div class="content-title">
+            <h1>How to Change the Pelican Index Page</h1>
+Thu 06 June 2019
+
+by <a class="url fn" href="https://thomasjohncole.github.io/pelican/author/thomas-cole/">Thomas Cole</a>
+ 
+
+
+        </div>
+	
+        <div><p><a href="http://getpelican.com" title="Pelican Development Blog">Pelican</a> is a static site generator written in Python. It is used by many as a blogging tool, and the default setup is an index or landing page which shows the most recent blog articles in reverse chronological order, similar to the default for Wordpress.</p>
+<p>I wanted to have some fun making a custom landing page for my site, so I didn't want the blog index to be the <code>index.html</code> page - the first thing people see. I still wanted to keep the blog index page though, but serve it at a different URL like blog.html, and make it accesible as a navigation menu link.</p>
+<p>Pelican takes data from its configuration files, content files, and template files, and converts it all to a group of static HTML files, which are stored by default in the output directory. One option with Pelican is to use <a href="https://en.wikipedia.org/wiki/Markdown" title="Markdown Wikipedia page">markdown</a> files to create content, which is what I'm using for my site.</p>
+<h2>Change the URL of the default index page</h2>
+<p>I changed the URL of the default index page by adding one line to the <code>pelicanconf.py</code> file:</p>
+<div class="highlight"><pre><span></span><span class="n">INDEX_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;blog.html&#39;</span>
+</pre></div>
+
+
+<p>Now Pelican will save that file with the new name when it builds the site.</p>
+<h2>Assign index.html to my custom home page</h2>
+<p>To tell Pelican that I want my custom home page to be the new index, I add some information to the metadata of my <code>home.md</code> file:</p>
+<div class="highlight"><pre><span></span>Title: Home
+save_as: index.html
+</pre></div>
+
+
+<h2>Define the navigation menu links</h2>
+<p>I've created some other static pages in addition to the home page. I want these to show up on the navigation menu in a specific order with a specific URL. Pelican by default expects any static pages you create to go in a directory named <code>pages</code>. If you define <code>DISPLAY_PAGES_ON_MENU = True</code> setting in the <code>pelicanconf.py</code> file, Pelican will take the files in your <code>/pages</code>  folder, and display them in the navigation menu in alphabetical order. It will also keep the <code>/pages</code> path as part of the URL. For instance, if you define a <code>contact.md</code> file in your <code>/pages</code> directory, Pelican will add <code>contact.html</code> to your navigation menu, with a URL of <code>SITEURL/pages/contact.html</code></p>
+<p>To change the order and the URLs of the navigation links I did two things. First, I defined the URLs for pages in the <code>pelicanconf.py</code> so they don't include the full path:</p>
+<div class="highlight"><pre><span></span><span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}&#39;</span>
+<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}.html&#39;</span>
+</pre></div>
+
+
+<p>I then added the <code>slug</code> parameter to the metadata of my pages. Here is an example of the metadata for the <code>about.md</code> page:</p>
+<div class="highlight"><pre><span></span>Title: About Me
+slug: about-me
+</pre></div>
+
+
+<p>Now the URL and file name for the contact page will take on the value of the slug from the metadata, so the URL will now be <code>SITEURL/about-me</code>. Note that the slug is optional, as Pelican will create one based on the title of the page, so you only need to add the slug if you want the URL and file name to be different than the page title.</p>
+<p>Finally I specified the links and associated URLs I wanted in the navigation menu:</p>
+<div class="highlight"><pre><span></span><span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;Home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;About&#39;</span><span class="p">,</span> <span class="s1">&#39;/about-me.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Projects&#39;</span><span class="p">,</span> <span class="s1">&#39;/projects.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Blog&#39;</span><span class="p">,</span> <span class="s1">&#39;/blog.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Contact&#39;</span><span class="p">,</span> <span class="s1">&#39;/contact.html&#39;</span> <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+
+
+<p>In order for this to work properly make sure that <code>DISPLAY_PAGES_ON_MENU</code> is set to <code>False</code>.</p>
+<h2>Conclusion</h2>
+<p>Pelican is a very flexible tool, and with a few changes to my configuration and page metadata I now have a site with a custom landing page, a custom navigation menu, and much cleaner URLs for my content pages. Here are all the changes to <code>pelicanconf.py</code> discussed in this article in one code block for easy reference:</p>
+<div class="highlight"><pre><span></span><span class="c1"># save default index page as blog.html</span>
+<span class="n">INDEX_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;blog.html&#39;</span>
+<span class="c1"># define shorter filename and URL for content pages</span>
+<span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}&#39;</span>
+<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}.html&#39;</span>
+<span class="c1"># define custom navigation menu</span>
+<span class="n">DISPLAY_PAGES_ON_MENU</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="p">(</span><span class="s1">&#39;Home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;About&#39;</span><span class="p">,</span> <span class="s1">&#39;/about-me.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Projects&#39;</span><span class="p">,</span> <span class="s1">&#39;/projects.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Blog&#39;</span><span class="p">,</span> <span class="s1">&#39;/blog.html&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;Contact&#39;</span><span class="p">,</span> <span class="s1">&#39;/contact.html&#39;</span> <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div></div>
+	
+        <hr>
+
+    </div>
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card" >
+            <h2 class="card-header">Site</h2>
+            <ul class="nav flex-column">
+
+                <li class="nav-item"><a class="nav-link" href="https://thomasjohncole.github.io/pelican/archives/">Archives</a>
+                <li class="nav-item"><a class="nav-link" href="https://thomasjohncole.github.io/pelican/tags/">Tags</a>
+
+
+            </ul>
+            </div>
+
+            <div class="card">
+            <h2 class="card-header">Categories</h2>
+            <ul class="nav flex-column">
+
+                <li class="nav-item"><a class="nav-link" href="https://thomasjohncole.github.io/pelican/category/book-review/">book-review</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://thomasjohncole.github.io/pelican/category/general/">General</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://thomasjohncole.github.io/pelican/category/pelican/">Pelican</a></li>
+
+            </ul>
+            </div>
+
+            <div class="card">
+            <h2 class="card-header">Links</h2>
+            <ul class="nav flex-column">
+
+                    <li class="nav-item"><a class="nav-link" href="http://getpelican.com/">Pelican</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://python.org/">Python.org</a></li>
+                    <li class="nav-item"><a class="nav-link" href="http://jinja.pocoo.org/">Jinja2</a></li>
+
+            </ul>
+            </div>
+
+            <div class="social">
+            <div class="card">
+            <h2 class="card-header">Social</h2>
+            <ul class="nav flex-column">
+
+                <li class="nav-item"><a class="nav-link" href="https://github.com/thomasjohncole">GitHub</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/thomas-john-cole">LinkedIn</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://twitter.com/thomasjohncole">Twitter</a></li>
+
+            </ul>
+            </div>
+            </div>
+
+        </div>     </div>     </div> 
+<footer>
+<br />
+<p><a href="https://thomasjohncole.github.io/pelican">Thomas Cole</a> &copy; Thomas Cole 2019</p>
+</footer>
+
+</div> <!-- /container -->
+<!--- get rid of old bootstrap js
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://thomasjohncole.github.io/pelican/theme/bootstrap-collapse.js"></script>
+-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
