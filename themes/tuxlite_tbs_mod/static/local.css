@@ -22,6 +22,25 @@ h3 { margin-top: 2.5em; }
 .content-title { margin-bottom: 30px; color: #0D1036;  }
 .article a:hover { text-decoration: none; }
 
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
 
 /* Styling for link cards on sidebar */
 .card { background-color: #e6e6e6; margin-top: 25px;}
