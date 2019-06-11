@@ -1,4 +1,4 @@
 Title: Contact
 slug: contact
 
-You can contact me if you need some work done.
+This page will contain my contact info. You guessed it, coming soon.
