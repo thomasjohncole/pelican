@@ -84,10 +84,12 @@ MENUITEMS = (
     )
 
 PATH = 'content'
+
 # added static paths to get a logo in there and extra
 STATIC_PATHS = [
     'images',
-    'extra',
+    'extra/favicon.ico',
+    'extra/robots.txt',
 ]
 
 EXTRA_PATH_METADATA = {
