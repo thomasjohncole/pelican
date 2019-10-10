@@ -6,7 +6,8 @@ header { background-color: #0D1036; padding: 10px; }
 .navbar { background-color: #0D1036; padding: 10px; }
 .navbar-custom .navbar-nav .nav-link { color: #49AFCD; }
 .nav { padding-right: 30px; }
-.navbar-collapse li { line-height: 0.6em;}
+.navbar-collapse li { line-height: 0.7em;}
+.show li {border: thin solid #1F4788}
 
 
 /* Styling for elements */
@@ -18,7 +19,7 @@ h3 { margin-top: 2.5em; }
 
 
 /* Styling for articles */
-.article { padding-right: 30px; }
+.article { padding-right: 10px; }
 .content-title { margin-bottom: 30px; color: #0D1036;  }
 .article a:hover { text-decoration: none; }
 
