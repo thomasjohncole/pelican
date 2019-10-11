@@ -1,4 +1,10 @@
-Title: Contact
+Title: Hire Me!
 slug: contact
 
-This page will contain my contact info. You guessed it, coming soon.
+I am currently available for hire - for projects, contracts, as well as part-time and full-time employment.
+### What Can I Help You With?
+
+
+* Languages - Python, PHP, Javascript, HTML, CSS
+* Frameworks - Flask, Pelican, Wordpress, Bootstrap
+* Databases - PostgreSQL, MySQL
