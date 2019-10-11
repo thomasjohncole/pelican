@@ -77,10 +77,9 @@ DISPLAY_PAGES_ON_MENU = False
 # use this list to get custom menu links
 MENUITEMS = (
     ('Home', ''),
-    ('About', 'about-me/'),
     ('Projects', 'projects/'),
     ('Blog', 'blog/'),
-    ('Contact', 'contact/' )
+    ('Hire Me!', 'contact/' )
     )
 
 PATH = 'content'
