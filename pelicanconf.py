@@ -71,7 +71,7 @@ PAGINATION_PATTERNS = (
 
 
 # my modified theme based on tuxlite_tbs
-THEME = "/home/tom/code-2019/pelican/themes/tuxlite_tbs_mod"
+THEME = "themes/tuxlite_tbs_mod"
 # display static pages from content/pages/ in the menu
 DISPLAY_PAGES_ON_MENU = False
 # use this list to get custom menu links
