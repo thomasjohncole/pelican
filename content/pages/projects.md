@@ -1,4 +1,5 @@
 Title: Projects
 slug: projects
+Template: projects
 
-This is page will showcase some projects that I've worked on. Soon.
+A few personal projects I've worked on recently.

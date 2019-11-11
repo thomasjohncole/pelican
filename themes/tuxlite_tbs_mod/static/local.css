@@ -66,6 +66,9 @@ blockquote p {
 
 code { color: #0D1036; padding: 2px 4px; background-color: #e6e6e6; }
 
+/* Styling for projects template - add borders temporarily */
+.project { border: 1px solid black; }
+
 /* Styling for Sidebar */
 .social a[href*='activestate.com']:before {content: url('./images/icons/activestate.png'); margin-right: 2px; vertical-align: -3px;}
 .social a[href*='atom.xml']:before {content: url('./images/icons/rss.png'); margin-right: 2px; vertical-align: -3px;}
@@ -83,3 +86,5 @@ code { color: #0D1036; padding: 2px 4px; background-color: #e6e6e6; }
 .social a[href*='rss.xml']:before {content: url('./images/icons/rss.png'); margin-right: 2px; vertical-align: -3px;}
 .social a[href*='stackoverflow.com']:before {content: url('./images/icons/stackoverflow.png'); margin-right: 2px; vertical-align: -3px;}
 .social a[href*='twitter.com']:before {content: url('./images/icons/twitter.png'); margin-right: 2px; vertical-align: -3px;}
+
+
