@@ -11,4 +11,4 @@ Currently I'm working with the [Flask](https://palletsprojects.com/p/flask/) mic
 
 This website is made using [Pelican](https://blog.getpelican.com/), a static-site generator also written in Python. Pelican also uses Jinja2 for templating. I am currently using [GitHub Pages](https://pages.github.com) for hosting.
 
-Pelican employs the use of themes for layout and styling, similar to Wordpess. I am using a custom theme based on the free theme tuxlite_tbs, which uses the [Bootstrap](https://getbootstrap.com/) front-end component library. The main difference between my theme and the original is I have upgraded to Bootstrap 4, whereas the original tuxlite_tbs theme was built with Bootstrap version 3.
+Pelican employs the use of themes for layout and styling, similar to Wordpess. I am using a custom theme based on the free theme [tuxlite_tbs](https://github.com/getpelican/pelican-themes/tree/master/tuxlite_tbs), which uses the [Bootstrap](https://getbootstrap.com/) front-end component library. The main difference between my theme and the original is I have upgraded to Bootstrap 4, whereas the original tuxlite_tbs theme was built with Bootstrap version 3.
