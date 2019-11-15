@@ -47,6 +47,7 @@ blockquote p {
 .card { background-color: #e6e6e6; margin-top: 25px;}
 .card-header { text-transform: uppercase; font-size:.9em; margin: 0px;}
 .card .nav .nav-link { line-height: .7em; font-size:.9em;}
+.card img { margin: auto; }
 
 
 /* Styling for the "other entries" section */
@@ -66,8 +67,9 @@ blockquote p {
 
 code { color: #0D1036; padding: 2px 4px; background-color: #e6e6e6; }
 
-/* Styling for projects template - add borders temporarily */
-.project { border: 1px solid black; }
+/* Styling for projects template - add borders to images */
+.projectimg { border: 1px solid black; }
+.projectlist { list-style-type: none; padding: 0; }
 
 /* Styling for Sidebar */
 .social a[href*='activestate.com']:before {content: url('./images/icons/activestate.png'); margin-right: 2px; vertical-align: -3px;}
