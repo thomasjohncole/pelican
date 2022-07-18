@@ -83,8 +83,8 @@ save_as: index.html
 <h2>Define the navigation menu links</h2>
 <p>I've created some other static pages in addition to the home page. I want these to show up on the navigation menu in a specific order with a specific URL. Pelican by default expects any static pages you create to go in a directory named <code>pages</code>. If you define <code>DISPLAY_PAGES_ON_MENU = True</code> setting in the <code>pelicanconf.py</code> file, Pelican will take the files in your <code>/pages</code>  folder, and display them in the navigation menu in alphabetical order. It will also keep the <code>/pages</code> path as part of the URL. For instance, if you define a <code>contact.md</code> file in your <code>/pages</code> directory, Pelican will add <code>contact.html</code> to your navigation menu, with a URL of <code>SITEURL/pages/contact.html</code></p>
 <p>To change the order and the URLs of the navigation links I did two things. First, I defined the URLs for pages in the <code>pelicanconf.py</code> so they don't include the full path:</p>
-<div class="highlight"><pre><span></span><span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}&#39;</span>
-<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}.html&#39;</span>
+<div class="highlight"><pre><span></span><span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{slug}</span><span class="s1">&#39;</span>
+<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{slug}</span><span class="s1">.html&#39;</span>
 </pre></div>
 
 
@@ -112,10 +112,10 @@ slug: about-me
 <div class="highlight"><pre><span></span><span class="c1"># save default index page as blog.html</span>
 <span class="n">INDEX_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;blog.html&#39;</span>
 <span class="c1"># define shorter filename and URL for content pages</span>
-<span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;{slug}&#39;</span>
-<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;{slug}.html&#39;</span>
+<span class="n">PAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{slug}</span><span class="s1">&#39;</span>
+<span class="n">PAGE_SAVE_AS</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{slug}</span><span class="s1">.html&#39;</span>
 <span class="c1"># define custom navigation menu</span>
-<span class="n">DISPLAY_PAGES_ON_MENU</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">DISPLAY_PAGES_ON_MENU</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">MENUITEMS</span> <span class="o">=</span> <span class="p">(</span>
     <span class="p">(</span><span class="s1">&#39;Home&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;About&#39;</span><span class="p">,</span> <span class="s1">&#39;/about-me.html&#39;</span><span class="p">),</span>
@@ -189,7 +189,8 @@ slug: about-me
         </div>     </div>     </div> 
 <footer>
 <br />
-<p><a href="https://thomasjohncole.github.io/pelican">Thomas Cole</a> &copy; Thomas Cole 2019</p>
+<!--  -->
+<p><a href="https://thomasjohncole.github.io/pelican">Thomas Cole</a> &copy; Thomas Cole 2022</p>
 </footer>
 
 </div> <!-- /container -->
