@@ -147,11 +147,12 @@
 
 <footer>
 <br />
-{% if articles %}
+<!-- {% if articles %}
    {% set copy_date = articles[0].date.strftime('%Y') %}
 {% else %}
    {% set copy_date = '' %}
-{% endif %}
+{% endif %} -->
+{% set copy_date = '2022' %}
 <p><a href="{{ SITEURL }}">{{ SITENAME }}</a> &copy; {{ AUTHOR }} {{ copy_date }}</p>
 </footer>
 
